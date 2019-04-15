@@ -1,16 +1,24 @@
 {
   "name": "fak",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
-  "author": "",
+  "author": "dbel431,dhananjay belhekar",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "faker": "^4.1.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dhananjay431/dbel431-fakerjs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dhananjay431/dbel431-fakerjs/issues"
+  },
+  "homepage": "https://github.com/dhananjay431/dbel431-fakerjs#readme",
+  "description": ""
 }
