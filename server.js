@@ -9,7 +9,6 @@ app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
   });
-
 app.get('/', (req, res) => {
  
     var d=[];
@@ -42,7 +41,7 @@ app.get('/dt', (req, res) => {
    res.send(d);
 })
 app.post('/dt/:id?', (req, res) => {
-    if(req.params.id==undefined){
+    if(req.params.id==undefined || req.params.id>100){
         req.params.id=10;
     }
     var n= evaluate({_:"number"});
@@ -249,6 +248,8 @@ function evaluate(object) {
 }
 
 
-app.listen(port, () => console.log(`Example app listening on port 3000`))
+app.listen(4200, function(){
+  console.log('listening on *:4200');
+});
 
     
