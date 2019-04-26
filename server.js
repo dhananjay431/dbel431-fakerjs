@@ -15,11 +15,9 @@ app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
   });
-<<<<<<< HEAD
+
 app.get('/dt', (req, res) => {
-=======
-app.get('/', (req, res) => {
->>>>>>> a6fa2a4a61240fbceb1dc6f09decc041dfa9560d
+
  
     var d=[];
     for(var i=0;i<1000;i++){
