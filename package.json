@@ -10,8 +10,12 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
+<<<<<<< HEAD
     "faker": "^4.1.0",
     "path": "^0.12.7"
+=======
+    "faker": "^4.1.0"
+>>>>>>> a6fa2a4a61240fbceb1dc6f09decc041dfa9560d
   },
   "repository": {
     "type": "git",
