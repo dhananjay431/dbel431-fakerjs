@@ -1,16 +1,21 @@
 const express = require('express')
 const app = express()
 var bodyParser = require('body-parser')
+var path = require('path');
 app.use(bodyParser.json())
 const port = 3000
 var faker = require('faker');
+
+app.get('/', function(req, res) {
+    res.sendFile(path.join(__dirname + '/index.html'));
+});
+
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
   });
-
-app.get('/', (req, res) => {
+app.get('/dt', (req, res) => {
  
     var d=[];
     for(var i=0;i<1000;i++){
@@ -42,7 +47,7 @@ app.get('/dt', (req, res) => {
    res.send(d);
 })
 app.post('/dt/:id?', (req, res) => {
-    if(req.params.id==undefined){
+    if(req.params.id==undefined || req.params.id>100){
         req.params.id=10;
     }
     var n= evaluate({_:"number"});
@@ -249,6 +254,8 @@ function evaluate(object) {
 }
 
 
-app.listen(port, () => console.log(`Example app listening on port 3000`))
+app.listen(4200, function(){
+  console.log('listening on *:4200');
+});
 
     
