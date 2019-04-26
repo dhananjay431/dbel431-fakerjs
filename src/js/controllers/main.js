@@ -18,6 +18,8 @@ mainCtrl.$inject = ['$scope'];
 function mainCtrl($scope){
    
    $scope.res={};
+   $scope.url = url;
+   $scope.call=false;
    var _js = `fetch('${url}/dt')
    .then(response => response.json())
    .then(json => console.log(json))`;
@@ -35,9 +37,12 @@ function mainCtrl($scope){
         hljs.highlightBlock(resultJs);
 
     $scope.fun1 = function(){
-      fetch('/dt')
+      
+      $scope.call=true;
+      fetch('/datatable/2')
       .then(response => response.json())
       .then(json => {
+        $scope.call=false;
         // $scope.res = json;
         // hljs.initHighlighting();
         // $scope.$apply();
@@ -46,16 +51,15 @@ function mainCtrl($scope){
         var str = JSON.stringify(json, null, '\t')
 
         // Format result
-        result.innerHTML =
-          str.replace(/\n/g, '<br/>')
-            .replace(/\\n/g, ' ')
-            .replace(/\t/g, '&nbsp;&nbsp;')
+        result.innerHTML = str.replace(/\n/g, '<br/>') .replace(/\\n/g, ' ') .replace(/\t/g, '&nbsp;&nbsp;');
 
         hljs.highlightBlock(result);
+        $scope.$apply();        
 
       })
 
-    }
+    };
+    $scope.apiArr=[{key:"/datatable/50",value:50,method:"GET"},{key:"/datatable/50",value:50,method:"POST"}];
     hljs.initHighlighting()
   
 

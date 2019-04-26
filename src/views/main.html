@@ -3,12 +3,34 @@
     <div class="text-center" style="font-size: 5rem;">JSONP Rest Api</div>
     <div class="text-center">Fake Online REST API for Testing and Prototyping </div>
     <div style="font-size: 2rem;">Example {{a1}}</div>
+    <pre><code id="js" class="javascript" style="font-size: 1rem;"> </code> </pre>
+    <button type="button" class="btn btn-primary" ng-click="fun1()">Click me 
+        <i ng-if="call" class="fa fa-spinner fa-spin" aria-hidden="true"></i>
+    </button>
+    <pre class="mt-3"><code id="result" class="json"></code></pre>
+    <div style="font-size: 2rem;">Resources</div>
+    
 
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Rest Api</th>
+            <th scope="col">Number of Data</th>
+            <th scope="col">Method</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="d in apiArr">
+            <th scope="row">{{$index}}</th>
+            <td><a href="{{url}}{{d.key}}">{{d.key}}</a></td>
+            <td>{{d.value}}</td>
+            <td>{{d.method}}</td>
+          </tr>
+      
+        </tbody>
+      </table>
+
+        
     
-    <pre><code id="js" class="javascript" style="font-size: 1rem;">
-    
-      </code>
-    </pre>
-    <button type="button" class="btn btn-primary" ng-click="fun1()"> Call Api</button>
-    <pre><code id="result" class="json"></code></pre>
 </div>
