@@ -3,7 +3,7 @@ const app = express()
 var bodyParser = require('body-parser')
 var path = require('path');
 app.use(bodyParser.json())
-const port = 3000
+const port = process.env.PORT ||  3000;
 var faker = require('faker');
 
 app.get('/', function(req, res) {
@@ -256,8 +256,8 @@ function evaluate(object) {
 }
 
 
-app.listen(4200, function(){
-  console.log('listening on *:4200');
+app.listen(port, function(){
+  console.log('listening on =',port);
 });
 
     
