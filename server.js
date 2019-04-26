@@ -6,6 +6,8 @@ app.use(bodyParser.json())
 const port = process.env.PORT ||  3000;
 var faker = require('faker');
 
+app.use(express.static('src'))
+app.use(express.static('node_modules'))
 app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
 });
