@@ -18,21 +18,7 @@ app.use(function(req, res, next) {
     next();
   });
 
-app.get('/dt', (req, res) => {
 
- 
-    var d=[];
-    for(var i=0;i<1000;i++){
-        d.push(evaluate({"city":{_:"city"},product:{_:"product"},"user":{
-
-firstName:{_:"firstName"},
-lastName:{_:"lastName"},
-findName:{_:"findName"}
-        }})) ;
-    }
- res.send(d);
-
-})
 app.get('/dt', (req, res) => {
     
     var n= evaluate({_:"number"});

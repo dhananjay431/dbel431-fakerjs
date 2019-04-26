@@ -10,7 +10,7 @@ var gray =          '#55595c';
 var grayLight =     '#818a91';
 var grayLighter =   '#d1d4d7';
 var grayLightest =  '#f8f9fa';
-
+var url =  window.location.origin;
 angular
 .module('app', [
   'ui.router',

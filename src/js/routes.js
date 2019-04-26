@@ -83,7 +83,8 @@ angular
           files: ['js/controllers/main.js']
         });
       }]
-    }
+    },
+    controller:'mainCtrl'
   })
   .state('appSimple', {
     abstract: true,

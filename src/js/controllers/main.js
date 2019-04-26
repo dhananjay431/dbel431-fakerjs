@@ -11,8 +11,55 @@ angular
 .controller('barChartCtrl', barChartCtrl)
 .controller('horizontalBarsCtrl', horizontalBarsCtrl)
 .controller('horizontalBarsType2Ctrl', horizontalBarsType2Ctrl)
-.controller('usersTableCtrl', usersTableCtrl);
+.controller('usersTableCtrl', usersTableCtrl)
+.controller('mainCtrl', mainCtrl);
 
+mainCtrl.$inject = ['$scope'];
+function mainCtrl($scope){
+   
+   $scope.res={};
+   var _js = `fetch('${url}/dt')
+   .then(response => response.json())
+   .then(json => console.log(json))`;
+
+   var resultJs = document.getElementById('js')
+        hljs.highlightBlock(resultJs)
+        
+
+        // Format result
+        resultJs.innerHTML =
+        _js.replace(/\n/g, '<br/>')
+            .replace(/\\n/g, ' ')
+            .replace(/\t/g, '&nbsp;&nbsp;')
+
+        hljs.highlightBlock(resultJs);
+
+    $scope.fun1 = function(){
+      fetch('/dt')
+      .then(response => response.json())
+      .then(json => {
+        // $scope.res = json;
+        // hljs.initHighlighting();
+        // $scope.$apply();
+        var result = document.getElementById('result')
+        hljs.highlightBlock(result)
+        var str = JSON.stringify(json, null, '\t')
+
+        // Format result
+        result.innerHTML =
+          str.replace(/\n/g, '<br/>')
+            .replace(/\\n/g, ' ')
+            .replace(/\t/g, '&nbsp;&nbsp;')
+
+        hljs.highlightBlock(result);
+
+      })
+
+    }
+    hljs.initHighlighting()
+  
+
+}
 //convert Hex to RGBA
 function convertHex(hex,opacity){
   hex = hex.replace('#','');
