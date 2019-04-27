@@ -11,6 +11,7 @@ module.exports = {
     "recordsTotal": n,
     "recordsFiltered": n});
     d.data = [];
+    if(Object.keys(req))
     for(var i=0;i<req.params.id;i++){
         var _d = plug.evaluate({"city":{_:"city"},product:{_:"product"},"user":{ firstName:{_:"firstName"}, lastName:{_:"lastName"}, findName:{_:"findName"} }});
         _d.id = i;

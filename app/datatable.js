@@ -13,7 +13,7 @@ module.exports = {
     d.data = [];
     for(var i=0;i<req.params.id;i++){
         var _d = plug.evaluate({"city":{_:"city"},product:{_:"product"},"user":{ firstName:{_:"firstName"}, lastName:{_:"lastName"}, findName:{_:"findName"} }});
-        _d.id = i;
+        //_d.id = i;
         d.data.push(_d);
     }
     res.send(d);
@@ -33,7 +33,7 @@ module.exports = {
         d.data = [];
     for(var i=0;i<req.params.id;i++){
         var _d = plug.evaluate(JSON.parse(JSON.stringify(req.body)));
-        _d.id = i;
+        //_d.id = i;
         d.data.push(_d);
     }
     res.send(d);
