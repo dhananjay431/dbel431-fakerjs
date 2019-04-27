@@ -13,7 +13,8 @@
     .controller('horizontalBarsType2Ctrl', horizontalBarsType2Ctrl)
     .controller('usersTableCtrl', usersTableCtrl)
     .service('cmm',cmm)
-    .controller('mainCtrl', mainCtrl);
+    .controller('mainCtrl', mainCtrl)
+    .controller('buttonsCtrl', buttonsCtrl);
 
     mainCtrl.$inject = ['$scope','cmm'];
     function mainCtrl($scope,cmm){
@@ -92,6 +93,16 @@
       
       
 
+    }
+    buttonsCtrl.$inject = ['$scope','cmm'];
+    function buttonsCtrl($scope,cmm){
+      $scope.key = Object.keys(cmm.allData[0]); 
+       $scope.init = function(){
+          cmm.post(url+'/getdata',cmm.allData).then(resp =>{
+            $scope.data = resp[0];
+          })
+       };
+       $scope.init();
     }
     //convert Hex to RGBA
     function convertHex(hex,opacity){
@@ -949,4 +960,5 @@
     body: JSON.stringify(data)
   }).then(json => json.json());
   }
+  this.allData = [{"zipCode":{"_":"zipCode"}, "city":{"_":"city"}, "cityPrefix":{"_":"cityPrefix"}, "citySuffix":{"_":"citySuffix"}, "streetName":{"_":"streetName"}, "streetAddress":{"_":"streetAddress"}, "streetSuffix":{"_":"streetSuffix"}, "streetPrefix":{"_":"streetPrefix"}, "secondaryAddress":{"_":"secondaryAddress"}, "county":{"_":"county"}, "country":{"_":"country"}, "countryCode":{"_":"countryCode"}, "state":{"_":"state"}, "stateAbbr":{"_":"stateAbbr"}, "latitude":{"_":"latitude"}, "longitude":{"_":"longitude"}, "color":{"_":"color"}, "department":{"_":"department"}, "productName":{"_":"productName"}, "price":{"_":"price"}, "productAdjective":{"_":"productAdjective"}, "productMaterial":{"_":"productMaterial"}, "product":{"_":"product"}, "suffixes":{"_":"suffixes"}, "companyName":{"_":"companyName"}, "companySuffix":{"_":"companySuffix"}, "catchPhrase":{"_":"catchPhrase"}, "bs":{"_":"bs"}, "catchPhraseAdjective":{"_":"catchPhraseAdjective"}, "catchPhraseDescriptor":{"_":"catchPhraseDescriptor"}, "catchPhraseNoun":{"_":"catchPhraseNoun"}, "bsAdjective":{"_":"bsAdjective"}, "bsBuzz":{"_":"bsBuzz"}, "bsNoun":{"_":"bsNoun"}, "column":{"_":"column"}, "type":{"_":"type"}, "collation":{"_":"collation"}, "engine":{"_":"engine"}, "past":{"_":"past"}, "future":{"_":"future"}, "between":{"_":"between"}, "recent":{"_":"recent"}, "month":{"_":"month"}, "weekday":{"_":"weekday"}, "fake":{"_":"fake"}, "account":{"_":"account"}, "accountName":{"_":"accountName"}, "mask":{"_":"mask"}, "amount":{"_":"amount"}, "transactionType":{"_":"transactionType"}, "currencyCode":{"_":"currencyCode"}, "currencyName":{"_":"currencyName"}, "currencySymbol":{"_":"currencySymbol"}, "bitcoinAddress":{"_":"bitcoinAddress"}, "iban":{"_":"iban"}, "bic":{"_":"bic"}, "abbreviation":{"_":"abbreviation"}, "adjective":{"_":"adjective"}, "noun":{"_":"noun"}, "verb":{"_":"verb"}, "ingverb":{"_":"ingverb"}, "phrase":{"_":"phrase"}, "randomize":{"_":"randomize"}, "slugify":{"_":"slugify"}, "replaceSymbolWithNumber":{"_":"replaceSymbolWithNumber"}, "replaceSymbols":{"_":"replaceSymbols"}, "shuffle":{"_":"shuffle"}, "mustache":{"_":"mustache"}, "createCard":{"_":"createCard"}, "contextualCard":{"_":"contextualCard"}, "userCard":{"_":"userCard"}, "createTransaction":{"_":"createTransaction"}, "image":{"_":"image"}, "avatar":{"_":"avatar"}, "imageUrl":{"_":"imageUrl"}, "abstract":{"_":"abstract"}, "animals":{"_":"animals"}, "business":{"_":"business"}, "cats":{"_":"cats"}, "city":{"_":"city"}, "food":{"_":"food"}, "nightlife":{"_":"nightlife"}, "fashion":{"_":"fashion"}, "people":{"_":"people"}, "nature":{"_":"nature"}, "sports":{"_":"sports"}, "technics":{"_":"technics"}, "transport":{"_":"transport"}, "dataUri":{"_":"dataUri"}, "avatar":{"_":"avatar"}, "email":{"_":"email"}, "exampleEmail":{"_":"exampleEmail"}, "userName":{"_":"userName"}, "protocol":{"_":"protocol"}, "url":{"_":"url"}, "domainName":{"_":"domainName"}, "domainSuffix":{"_":"domainSuffix"}, "domainWord":{"_":"domainWord"}, "ip":{"_":"ip"}, "ipv6":{"_":"ipv6"}, "userAgent":{"_":"userAgent"}, "color":{"_":"color"}, "mac":{"_":"mac"}, "password":{"_":"password"}, "word":{"_":"word"}, "words":{"_":"words"}, "sentence":{"_":"sentence"}, "slug":{"_":"slug"}, "sentences":{"_":"sentences"}, "paragraph":{"_":"paragraph"}, "paragraphs":{"_":"paragraphs"}, "text":{"_":"text"}, "lines":{"_":"lines"}, "firstName":{"_":"firstName"}, "lastName":{"_":"lastName"}, "findName":{"_":"findName"}, "jobTitle":{"_":"jobTitle"}, "prefix":{"_":"prefix"}, "suffix":{"_":"suffix"}, "title":{"_":"title"}, "jobDescriptor":{"_":"jobDescriptor"}, "jobArea":{"_":"jobArea"}, "jobType":{"_":"jobType"}, "phoneNumber":{"_":"phoneNumber"}, "phoneNumberFormat":{"_":"phoneNumberFormat"}, "phoneFormats":{"_":"phoneFormats"}, "number":{"_":"number"}, "arrayElement":{"_":"arrayElement"}, "objectElement":{"_":"objectElement"}, "uuid":{"_":"uuid"}, "boolean":{"_":"boolean"}, "word":{"_":"word"}, "words":{"_":"words"}, "image":{"_":"image"}, "locale":{"_":"locale"}, "alphaNumeric":{"_":"alphaNumeric"}, "fileName":{"_":"fileName"}, "commonFileName":{"_":"commonFileName"}, "mimeType":{"_":"mimeType"}, "commonFileType":{"_":"commonFileType"}, "commonFileExt":{"_":"commonFileExt"}, "fileType":{"_":"fileType"}, "fileExt":{"_":"fileExt"}, "directoryPath":{"_":"directoryPath"}, "filePath":{"_":"filePath"}, "semver":{"_":"semver"}} ];
   }

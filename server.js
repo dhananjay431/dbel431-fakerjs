@@ -7,6 +7,7 @@
     
     var plug = require('./app/plugins');
     var datatable = require('./app/datatable');
+    var allData = require('./app/allData')
     app.use(express.static('src'))
     app.use(express.static('node_modules'))
     app.get('/', function(req, res) {
@@ -22,6 +23,10 @@
 
     app.get('/datatable/:id?',datatable.datatable);
     app.post('/datatable/:id?', datatable.datatablePost);
+
+    app.get('/getData',allData.allDataPost);
+    app.post('/getData', allData.allDataPost);
+
 
     app.listen(port, function(){
     console.log('listening on =',port);

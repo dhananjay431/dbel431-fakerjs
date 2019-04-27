@@ -39,12 +39,31 @@ angular
       label: 'Components'
     }
   })
+  // .state('app.components.buttons', {
+  //   url: '/buttons',
+  //   templateUrl: 'views/components/buttons.html',
+  //   ncyBreadcrumb: {
+  //     label: 'Buttons'
+  //   }
+  // })
   .state('app.components.buttons', {
-    url: '/buttons',
+    url: '/datatype',
     templateUrl: 'views/components/buttons.html',
+    //page title goes here
     ncyBreadcrumb: {
-      label: 'Buttons'
-    }
+      label: 'Buttons',
+    },
+    //page subtitle goes here
+    params: { subtitle: 'Welcome to ROOT powerfull Bootstrap & AngularJS UI Kit' },
+    resolve: {
+      loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+        // you can lazy load controllers
+        return $ocLazyLoad.load({
+          files: ['js/controllers/main.js']
+        });
+      }]
+    },
+    controller:'buttonsCtrl'
   })
   .state('app.components.social-buttons', {
     url: '/social-buttons',
