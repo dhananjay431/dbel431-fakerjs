@@ -71,7 +71,7 @@
 
 
 
-          cmm.post('http://localhost:3000/datatable/10',qr).then(resp =>{
+          cmm.post(url+'/datatable/10',qr).then(resp =>{
             var result1 = document.getElementById('res1')
             hljs.highlightBlock(result1)
             var str = JSON.stringify(resp, null, '\t')
