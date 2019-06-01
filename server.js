@@ -5,8 +5,9 @@
     const mongoose = require('mongoose');
     var DataTable = require('mongoose-datatable');
     mongoose.plugin(DataTable.init);
+    //require('dotenv').config();
     const port = process.env.PORT ||  3000;
-    require('dotenv').config();
+    
     app.use(bodyParser.json())
     mongoose.connect(process.env.SECRET, {useNewUrlParser: true});
     const Cat = mongoose.model('words', {
